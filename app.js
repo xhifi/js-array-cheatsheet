@@ -1,67 +1,85 @@
-const fruits = ["kiwi", "mango", "banana", "orange", "peer", "apricot"];
+const numsArr = [22, 12, 43, 80, 76, 26, 111, 35, 6, 75, 46];
+const fruits = ["mango", "banana", "kiwi", "apricot", "pineapple"];
 
-//length - length of arr | MUTABLE | cahange length by asignment and items disappear
-console.log("Array Length is: " + fruits.length);
+// fruits.length = 3;
+// console.log(fruits);
+// fruits.length = 5;
+// console.log(fruits);
+// console.log(fruits[fruits.length - 1]);
 
-//arr[0] - first element
-console.log("First Element is: " + fruits[0]);
+// indexOf()
+// const indexFruit = fruits.indexOf("Pineapple");
+// console.log(indexFruit);
 
-//arr[length -1] - last element
-console.log("Last Item is " + fruits[fruits.length - 1]);
+// pop()
+// Pop method when applied on an array removes the last element from the operated array and returns the value of the item removed.
+// Array:self.pop();
 
-//indexOf - returns the index of something | if doesnt exist returns -1
-console.log("Index of orange is: " + fruits.indexOf("orange"));
-console.log("Index of Orange is: " + fruits.indexOf("Orange"));
+console.log(fruits.length);
+// const lengthOfFruits = fruits[fruits.length - 1];
+// console.log(lengthOfFruits);
+const popped = fruits.pop();
+console.log(popped);
+console.log(fruits);
+// push()
+const indexOfPush = fruits.push("Pineapple");
+console.log(indexOfPush);
+console.log(fruits);
 
-//includes - returns true if item exists | false if not
-console.log("mangoes Exist?: " + fruits.includes("mango"));
-console.log("peach Exist?: " + fruits.includes("peach"));
+// shift()
+const valueOfShift = fruits.shift();
+console.log(valueOfShift, fruits);
 
-//pop - removes last item | returns removed item
-console.log("Before removing the array: " + fruits);
-console.log("Last element removed is: " + fruits.pop());
-console.log("Resultant array is: " + fruits);
+// unshift()
+const lengthOfUnshiftedArray = fruits.unshift("Mango");
+console.log(lengthOfUnshiftedArray, fruits);
 
-//push - adds an item at the end of arr
-console.log("Before adding item in the end: " + fruits);
-console.log("New Length of the array: " + fruits.push("peach"));
-console.log("Resultant Array is: " + fruits);
+// splice()
+// splice method when applied on an array demands two arguments, the first argument dicates the index where you begin the operation and the second argument takes the number of items you wish to replace.
+// Second argument however is optional, if it doesn't exist or is set to numeric 0, the method will instead of replacing any item, include the item at specified value in argument 1 and shift the array by that number to the right.
+// Array:self.splice(Number:$arg1, Number?:arg2, Array:$arg3[""])
 
-//shift - remove 1st item
-console.log("before removing the first item: " + fruits);
-console.log("Item being removed is: " + fruits.shift());
-console.log("Resultant Array is: " + fruits);
+fruits.splice(2, 0, "Lemon");
+console.log(fruits, "\n\n\n\n\n");
 
-//unshift - adds 1st item | $arg = item to add in 1st place
-console.log("Before adding the item in the beginning: " + fruits);
-console.log("New Length of the array: " + fruits.unshift("kiwi"));
-console.log("Resultant Array is: " + fruits);
-
-//concat - it doesnt mutate original array, instead need to make a new array and store it
-
-//join - converts an array to string | $arg = separator
-//split -
-//String.split("") // get all chars of string in array
-//slice - $arg1, $arg2 | arg2 isnt included
-console.log("New Array of items between index 1 and 3: " + fruits.slice(1, 3));
-console.log("While original Array is staying the same as: " + fruits);
-//splice - $arg1, $arg2, $arg3 | $arg1 is index, $arg2 is how many items to remov, $arg3 is items to add | if no arg3 is provided, it removes the item at index
-console.log(fruits.splice(1, 2, "peach", "pineapple"));
-console.log("Mutated the fruits by replacing 2 items starting from index 1: " + fruits);
-
-//reverse
-//sort - $arg = function(a, b) {return a - b}
-//sort - $arg = function(a, b) {return b - a}
-//sort - $arg = function(a, b) {return a.length - b.length}
-//sort - $arg = function(a, b) {return b.length - a.length}
-//sort - $arg = function(a, b) {return a.toLowerCase().localeCompare(b.toLowerCase())}
-//sort - $arg = function(a, b) {return b.toLowerCase().localeCompare(a.toLowerCase())}
-const sortMethod = (a, b) => {
+// sort()
+const compareAscFn = (a, b) => {
   return a - b;
+
+  // if a - b = -val | moves is backwards
+  // if a - b = val | moves is forwards
+  // if a - b = 0 | skip both items
 };
-const sortMethod2 = function (a, b) {
-  return a.toLowerCase().localeCompare(b.toLowerCase());
+
+const compareDescFn = (a, b) => {
+  return b - a;
 };
-const nums = [1, 12, 55, 1, 23, 2, 35, 12];
-console.log(nums.sort(sortMethod));
-console.log(fruits.sort(sortMethod2));
+
+numsArr.sort(compareDescFn);
+
+console.log(numsArr);
+
+// filter()
+// join()
+// const JoinedArr = fruits.join("|");
+// console.log(JoinedArr, fruits);
+// slice()
+
+/////////////
+// concat()
+// const fruits2 = ["radish", "potato", "lemon"];
+// const newGreens = fruits.concat(fruits2);
+// console.log(newGreens);
+// console.log(fruits);
+
+// array destrcturing
+
+// iterator Methods:
+
+// forEach()
+// map()
+// reduce()
+// find()
+// findIndex()
+// every()
+// some()
